@@ -1,0 +1,30 @@
+#include <unordered_map>
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Создаем хэш-таблицу для хранения оценок студентов
+    unordered_map<string, int> studentGrades;
+    
+    // Добавляем элементы
+    studentGrades["Alice"] = 95;
+    studentGrades["Bob"] = 87;
+    studentGrades["Charlie"] = 92;
+    
+    // Быстрый поиск по ключу
+    cout << "Оценка Alice: " << studentGrades["Alice"] << endl;
+    
+    // Проверяем наличие ключа
+    if (studentGrades.find("Bob") != studentGrades.end()) {
+        cout << "Bob есть в журнале" << endl;
+    }
+    
+    // Удаляем элемент
+    studentGrades.erase("Charlie");
+    
+    // Перебираем все элементы
+    for (auto& pair : studentGrades) {
+        cout << pair.first << ": " << pair.second << endl;
+    }
+}
